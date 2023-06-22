@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx:/etc/nginx
+    networks:
+      - vpsnet
+
+networks:
+  vpsnet:
+    external: true
